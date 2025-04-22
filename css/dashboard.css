@@ -37,18 +37,22 @@
     margin-bottom: 20px;
 }
 
+/* Sidebar user section */
 .sidebar-user {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Stack the image and username vertically */
     margin-bottom: 20px;
+    text-align: center; /* Center-align the text */
 }
 
 .userimage {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+    height: 60px; /* Adjust the size of the image */
+    width: 60px; /* Ensure the image is square */
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 10px; /* Add spacing below the image */
+    object-fit: cover; /* Ensure the image fits within the circle */
 }
 
 .username {
@@ -93,6 +97,39 @@
     background-color: rgb(100, 100, 100);
 }
 
+/* Sidebar collapsed styles */
+.dashboard_sidebar.collapsed .sidebar-logo {
+    display: none; /* Hide the logo text */
+}
+
+.dashboard_sidebar.collapsed .username {
+    display: none; /* Hide the username */
+}
+
+.dashboard_sidebar.collapsed ul li a {
+    justify-content: center; /* Center the icons */
+    padding: 10px 0; /* Adjust padding for smaller sidebar */
+    text-align: center; /* Center-align the icons */
+}
+
+.dashboard_sidebar.collapsed ul li a span {
+    display: none; /* Hide the text (e.g., "Dashboard", "Settings") */
+}
+
+.dashboard_sidebar.collapsed ul li a i {
+    margin-right: 0; /* Remove spacing between icon and text */
+    font-size: 20px; /* Adjust icon size for better visibility */
+}
+
+.dashboard_sidebar.collapsed .userimage {
+    margin: 0 auto; /* Center the user image */
+    display: block;
+    height: 40px; /* Reduce the size of the image */
+    width: 40px; /* Ensure the image remains square */
+    margin-bottom: 0; /* Remove extra spacing */
+    margin-top: 50px;
+}
+
 /* Content container */
 .dashboard-content-container {
     margin-left: 250px;
@@ -131,6 +168,10 @@
 /* Main content */
 .dashboard-content {
     padding: 70px 20px 20px 20px; /* Adjust padding to account for the top nav */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack content vertically */
+    flex-wrap: wrap; /* Allow content to wrap when space is limited */
+    overflow: hidden; /* Prevent content from overflowing */
 }
 
 .dashboard-content-main {
@@ -138,6 +179,11 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
+    overflow-wrap: break-word; /* Ensure text wraps properly */
+    width: 100%; /* Ensure the content takes up the full width of the container */
+    max-width: 100%; /* Prevent content from exceeding the container width */
+    box-sizing: border-box; /* Include padding and borders in the width calculation */
 }
 
 /* Responsive design */
@@ -158,5 +204,21 @@
     .dashboard-content-container.collapsed {
         margin-left: 60px;
         width: calc(100% - 60px);
+    }
+
+    .dashboard_sidebar.collapsed ul li a {
+        font-size: 14px; /* Adjust icon size for smaller screens */
+    }
+
+    .dashboard-content-main {
+        font-size: 14px; /* Reduce font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-content-main {
+        font-size: 12px; /* Further reduce font size for very small screens */
+        padding: 10px; /* Adjust padding for very small screens */
     }
 }
