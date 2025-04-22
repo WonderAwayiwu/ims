@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Check if the session variable is set
+if (!isset($_SESSION['first_name'])) {
+    header("Location: login.php"); // Redirect to login if the session is not set
+    exit;
+}else if (!isset($_SESSION['username'])) {
+    header("Location: login.php"); // Redirect to login if the session is not set
+    exit;
+}
+
+$first_name = htmlspecialchars($_SESSION['first_name']); // Safely retrieve the first name
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,40 +29,13 @@
 <body>
     <!-- Main container -->
     <div id="dashboardMainContainer">
+
         <!-- Sidebar -->
-        <div class="dashboard_sidebar" id="dashboard_sidebar">
-            <h3 class="sidebar-logo">IMS</h3>
-            <div class="sidebar-user">
-                <img class="userimage" src="images/nice wonder.jpg" alt="User Image">
-                <span class="username">Wonder</span>
-            </div>
-            <hr class="line">
-            <div class="sidebar-menus">
-                <ul class="sidebar-menu-list">
-                    <li>
-                        <a href="#" class="active">
-                            <i class="fa fa-dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-cogs"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+         <?php include 'reuseables/sidebar.php'; ?>
 
         <!-- Content container -->
         <div class="dashboard-content-container" id="dashboard_content">
-            <div class="dashboard-content-topNav">
-                <a href="#" id="togglebtn"><i class="fa fa-navicon"></i></a>
-                <a href="#" class="logout-btn">
-                    <i class="fa fa-power-off"></i> Log-out
-                </a>
-            </div>
+            <?php include 'reuseables/navbar.php'; ?>
             <div class="dashboard-content">
                 <div class="dashboard-content-main">
                     <h1>Welcome to the Dashboard</h1>
