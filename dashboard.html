@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inventory Management System</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+    <div id="dashboardMainContainer">
+        <div class="dashboard_sidebar" id="dashboard_sidebar">
+            <h3 class="sidebar-logo">IMS</h3>
+            <div class="sidebar-user">
+                <img class="userimage" src="images/nice wonder.jpg" alt="user_image">
+                <span class="username">Wonder</span>
+            </div>
+            <hr class="line">
+            <div class="sidebar-menus">
+                <ul class="sidebar-menu-list">
+                    <li><a href=""><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                    <li><a href=""><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard-content-container">
+            <div class="dashboard-content-topNav">
+                <a href="" id="togglebtn"><i class="fa fa-navicon"></i></a>
+                <a href=""><i class="fa fa-power-off"></i> Log-out</a>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-content-main"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        togglebtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            dashboard_sidebar.style.width = '10%';
+            dashboardMainContainer.style.width = '90%';
+        });
+    </script>
+</body>
+
+</html>
