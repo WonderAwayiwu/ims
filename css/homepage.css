@@ -1,39 +1,54 @@
+:root {
+    --primary-blue: #3498db;
+    --dark-blue-gray: #2c3e50;
+    --light-gray: #ecf0f1;
+    --muted-gray: #7f8c8d;
+}
+
 * {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box; /* Include padding and borders in width/height */
 }
 
 div.header {
     width: 100%;
     height: 50px;
-    background: yellow;
+    background: var(--dark-blue-gray); /* Dark blue-gray */
     position: relative;
     z-index: 3;
     text-align: right;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: flex-end; /* Align content to the right */
 }
 
-div.header a button{
-    padding: 6px;
-    margin: 5px 7px;
-    margin-top: 10px;
-    background: rgb(87, 118, 228);
+div.header a button {
+    padding: 6px 15px; /* Adjust padding for better spacing */
+    margin: 0 10px; /* Consistent horizontal margin */
+    background: var(--primary-blue); /* Professional blue */
     border: none;
     border-radius: 6px;
-    width: 80px;
     color: white;
     font-size: 15px;
-    margin-right: 40px;
+    cursor: pointer; /* Add pointer cursor for better UX */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+div.header a button:hover {
+    background: #2980b9; /* Slightly darker blue on hover */
 }
 
 div.banner {
+    position: relative; /* Ensure the overlay works correctly */
     background: url('../images/banner.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     padding-top: 50px;
-
+    height: 400px; /* Set a fixed height for consistency */
 }
 
 div.banner::before {
@@ -41,18 +56,15 @@ div.banner::before {
     position: absolute;
     top: 0;
     left: 0;
-    height: 72%;
+    height: 100%; /* Ensure the overlay covers the entire banner */
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* black with 50% transparency */
+    background-color: rgba(44, 62, 80, 0.7); /* Dark overlay */
     z-index: 1;
 }
 
 div.homepageContainer {
     position: relative;
-
     z-index: 2;
-
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -63,39 +75,34 @@ div.homepageContainer {
 
 div.bannerHeader h1 {
     font-size: 50px;
-    color: #eff631;
+    color: var(--light-gray); /* Light gray */
 }
 
 div.bannerHeader p {
     padding-bottom: 10px;
-    color: #eff631;
+    color: #bdc3c7; /* Soft gray */
 }
 
 div.bannerIcons {
     padding-top: 10px;
-
-
 }
-
-
 
 div.bannerIcons a {
     font-size: 20px;
-    margin-left: 40px;
-    padding: 4px 6px;
-    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0 10px; /* Consistent horizontal spacing */
+    padding: 10px; /* Adjust padding for better clickability */
+    background-color: rgba(44, 62, 80, 0.8); /* Dark blue-gray */
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    text-align: center;
-    padding-bottom: 6px;
-    color: rgba(233, 228, 228, 0.829);
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+    color: var(--light-gray); /* Light gray */
+    transition: transform 0.3s, background 0.3s, color 0.3s; /* Smooth hover effect */
 }
 
 .bannerTagLine {
     font-size: 15px;
-    color: white;
+    color: var(--light-gray); /* Light gray */
     width: 500px;
 }
 
@@ -105,14 +112,11 @@ div.bannerIcons a:first-child {
 
 div.bannerIcons a:hover {
     color: white;
-    background: #e2e73e;
-    transform: scale(1.1);
-    transition: transform 0.3s, background 0.3s, color 0.3s;
+    background: var(--primary-blue); /* Professional blue */
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
 div.homepageFeatures {
-
-
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -122,27 +126,26 @@ div.homepageFeatures {
 }
 
 div.homepageFeature {
-    padding: 10px 20px;
+    padding: 20px;
     text-align: center;
-    transition: 0.2s all;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Simplify transitions */
 }
 
 div.homepageFeature:hover {
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    transform: scale(1.0);
-    border-color: #a8a841;
-    transition: transform 0.3s, background 0.3s, color 0.3s;
+    border-top: 2px solid var(--primary-blue); /* Professional blue */
+    border-bottom: 2px solid var(--primary-blue);
+    background-color: rgba(52, 152, 219, 0.1); /* Subtle background on hover */
 }
 
 div.homepageFeature span.featureIcon {
-    font-size: 20px;
-    background: #e2e73e;
+    font-size: 24px; /* Slightly larger icon */
+    background: var(--primary-blue); /* Professional blue */
     color: white;
-    display: inline-block;
-    padding: 5px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
     border-radius: 50%;
-    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -151,21 +154,19 @@ div.homepageFeature span.featureIcon {
 }
 
 .featureDescription {
-    color: rgba(0, 0, 0, 0.4);
+    color: var(--muted-gray); /* Muted gray */
 }
 
 .NotifiedContainer {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(236, 240, 241, 0.5); /* Light gray background */
     padding-bottom: 50px;
 }
 
 div.homepageNotified {
-
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-
     display: flex;
     flex-direction: row;
 }
@@ -179,6 +180,7 @@ div.emailForm h3 {
     padding-top: 60px;
     padding-bottom: 20px;
     font-size: 23px;
+    color: var(--dark-blue-gray); /* Dark blue-gray */
 }
 
 div.emailForm form {
@@ -190,7 +192,7 @@ div.emailForm form input {
     border-radius: 6px 0 0 6px;
     width: 280px;
     margin-right: 0px;
-    border: none;
+    border: 1px solid #bdc3c7; /* Soft gray border */
 }
 
 div.emailForm form button {
@@ -198,9 +200,8 @@ div.emailForm form button {
     border-radius: 0 6px 6px 0;
     margin-left: 0px;
     border: none;
-    background: #a8a841;
-    color: rgb(255, 255, 255);
-
+    background: var(--primary-blue); /* Professional blue */
+    color: white;
 }
 
 .notify-form {
@@ -212,7 +213,7 @@ div.video {
 }
 
 .para {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--muted-gray); /* Muted gray */
 }
 
 .social-links {
@@ -221,55 +222,58 @@ div.video {
 
 .social-links p {
     padding-bottom: 15px;
+    color: var(--muted-gray); /* Muted gray */
 }
 
-.social-links h3 {
+social-links h3 {
     padding-top: 15px;
     padding-bottom: 15px;
+    color: var(--dark-blue-gray); /* Dark blue-gray */
 }
 
 .footer-links a i {
     border: none;
     border-radius: 50%;
-    padding: 8px 10px;
-    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    background: #34495e; /* Dark gray-blue */
     color: white;
-    margin-right: 5px;
-    margin-bottom: 10px;
+    margin: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
 }
 
 div.footer-links a i:hover {
-    background: #e2e73e;
-    color: black;
-    transform: scale(1.2);
-    transition: transform 0.3s, background 0.3s, color 0.3s;
-}
-
-.footer-links a i.fa-facebook {
-    padding: 8px 13px;
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    border-radius: 50%;
+    background: #2980b9; /* Slightly darker blue */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 
 footer {
-    background: rgba(0, 0, 0, 0.1);
+    background: #ecf0f1; /* Light gray */
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--muted-gray); /* Muted gray */
 }
 
 footer a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.4);
-    padding: 20px 15px;
-    background-attachment: fixed;
-    display: inline-block;
+    color: var(--primary-blue); /* Professional blue */
+    margin: 0 10px;
+    transition: color 0.3s ease; /* Smooth hover effect */
 }
 
 footer a:hover {
-    color: rgba(24, 57, 222, 0.6);
-    transform: scale(1.1);
-    transition: transform 0.3s, background 0.3s, color 0.3s;
+    color: #2980b9; /* Slightly darker blue */
     font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    div.header {
+        height: auto;
+        text-align: center;
+    }
+
+    div.banner {
+        height: auto;
+        padding: 20px;
+    }
 }

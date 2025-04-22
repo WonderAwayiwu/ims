@@ -97,6 +97,18 @@
     background-color: rgb(100, 100, 100);
 }
 
+/* Active menu item styling */
+.sidebar-menus ul li a.active {
+    background-color: rgb(100, 100, 100); /* Highlight background color */
+    color: white; /* Ensure text color is white */
+    font-weight: bold; /* Make the text bold */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.sidebar-menus ul li a.active i {
+    color: white; /* Ensure the icon color matches the text */
+}
+
 /* Sidebar collapsed styles */
 .dashboard_sidebar.collapsed .sidebar-logo {
     display: none; /* Hide the logo text */
@@ -165,6 +177,30 @@
     color: gray;
 }
 
+/* Logout button styling */
+.logout-btn {
+    display: flex; /* Align the icon and text horizontally */
+    align-items: center; /* Vertically center the icon and text */
+    justify-content: center; /* Center the button content */
+    background-color: #d9534f; /* Red background color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 16px; /* Adjust font size */
+    padding: 10px 20px; /* Add padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-left: auto; /* Push the button to the right in the top navigation */
+}
+
+.logout-btn i {
+    margin-right: 8px; /* Add spacing between the icon and text */
+}
+
+.logout-btn:hover {
+    background-color: #c9302c; /* Darker red on hover */
+    color: white; /* Ensure text remains white */
+}
+
 /* Main content */
 .dashboard-content {
     padding: 70px 20px 20px 20px; /* Adjust padding to account for the top nav */
@@ -189,7 +225,8 @@
 /* Responsive design */
 @media (max-width: 768px) {
     .dashboard_sidebar {
-        width: 60px;
+        width: 150px;
+       
     }
 
     .dashboard_sidebar.collapsed {
@@ -197,8 +234,8 @@
     }
 
     .dashboard-content-container {
-        margin-left: 60px;
-        width: calc(100% - 60px);
+        margin-left: 150px;
+        width: calc(100% - 150px);
     }
 
     .dashboard-content-container.collapsed {
@@ -216,9 +253,9 @@
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .dashboard-content-main {
         font-size: 12px; /* Further reduce font size for very small screens */
         padding: 10px; /* Adjust padding for very small screens */
     }
-}
+} */

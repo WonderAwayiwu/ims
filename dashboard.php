@@ -23,7 +23,7 @@
             <div class="sidebar-menus">
                 <ul class="sidebar-menu-list">
                     <li>
-                        <a href="#">
+                        <a href="#" class="active">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
@@ -42,7 +42,9 @@
         <div class="dashboard-content-container" id="dashboard_content">
             <div class="dashboard-content-topNav">
                 <a href="#" id="togglebtn"><i class="fa fa-navicon"></i></a>
-                <a href="#"><i class="fa fa-power-off"></i> Log-out</a>
+                <a href="#" class="logout-btn">
+                    <i class="fa fa-power-off"></i> Log-out
+                </a>
             </div>
             <div class="dashboard-content">
                 <div class="dashboard-content-main">
