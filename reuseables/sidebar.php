@@ -8,19 +8,20 @@
             <hr class="line">
             <div class="sidebar-menus">
                 <ul class="sidebar-menu-list">
+                    <!-- class="active" -->
                     <li>
-                        <a href="#" class="active">
+                        <a href="dashboard.php">
                             <i class="fa fa-dashboard"></i>
                             <span class="menuname">DASHBOARD</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fa fa-bullhorn"></i>
-                            <span class="menuname">CAMPAIGNS</span>
+                        <a href="addUsers.php">
+                            <i class="fa fa-user-plus"></i>
+                            <span class="menuname">ADD USER</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#">
                             <i class="fa fa-money"></i>
                             <span class="menuname">REVENUE MANAGEMENT</span>
@@ -43,7 +44,7 @@
                             <i class="fa fa-bar-chart"></i>
                             <span class="menuname">STATS</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

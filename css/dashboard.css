@@ -230,6 +230,83 @@
     box-sizing: border-box; /* Include padding and borders in the width calculation */
 }
 
+/* Form container styling */
+.appform {
+    max-width: 500px; /* Limit the form width */
+    margin: 50px auto; /* Center the form */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Form heading */
+.appform h1 {
+    font-size: 24px;
+    color: #2c3e50; /* Dark blue-gray */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+.appform label {
+    display: block;
+    font-size: 14px;
+    color: #34495e; /* Dark gray-blue */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Form inputs */
+.appform input[type="text"],
+.appform input[type="email"],
+.appform input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding in width */
+    background-color: #fff; /* White background */
+    transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+/* Input focus effect */
+.appform input[type="text"]:focus,
+.appform input[type="email"]:focus,
+.appform input[type="password"]:focus {
+    border-color: #3498db; /* Professional blue */
+    outline: none; /* Remove default outline */
+}
+
+/* Submit button */
+.appform button {
+    width: 100%; /* Full width */
+    padding: 12px;
+    background-color: #3498db; /* Professional blue */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+/* Button hover effect */
+.appform button:hover {
+    background-color: #2980b9; /* Slightly darker blue */
+    transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* Button icon */
+.appform button i {
+    margin-right: 8px; /* Add spacing between icon and text */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .dashboard_sidebar {
@@ -259,6 +336,18 @@
     .dashboard-content-main {
         font-size: 14px; /* Reduce font size for smaller screens */
         padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .appform {
+        padding: 15px;
+    }
+
+    .appform h1 {
+        font-size: 20px;
+    }
+
+    .appform button {
+        font-size: 14px;
     }
 }
 
