@@ -1,27 +1,41 @@
-        <!-- Sidebar -->
-        <div class="dashboard_sidebar" id="dashboard_sidebar">
-            <h3 class="sidebar-logo">IMS</h3>
-            <div class="sidebar-user">
-                <img class="userimage" src="images/nice wonder.jpg" alt="User Image">
-                <span class="username"><?php echo $first_name; ?></span>
-            </div>
-            <hr class="line">
-            <div class="sidebar-menus">
-                <ul class="sidebar-menu-list">
-                    <!-- class="active" -->
-                    <li>
-                        <a href="dashboard.php">
-                            <i class="fa fa-dashboard"></i>
-                            <span class="menuname">DASHBOARD</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="addUsers.php">
-                            <i class="fa fa-user-plus"></i>
-                            <span class="menuname">ADD USER</span>
-                        </a>
-                    </li>
-                    <!-- <li>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
+
+  <body>
+
+
+
+
+      <!-- Sidebar -->
+      <div class="dashboard_sidebar" id="dashboard_sidebar">
+          <h3 class="sidebar-logo">IMS</h3>
+          <div class="sidebar-user">
+              <img class="userimage" src="images/nice wonder.jpg" alt="User Image">
+              <span style="font-size: 14px; "><?= $user['first_name'] . " " . $user['last_name']; ?></span>
+          </div>
+          <hr class="line">
+          <div class="sidebar-menus">
+              <ul class="sidebar-menu-list">
+                  <!-- class="active" -->
+                  <li>
+                      <a href="dashboard.php">
+                          <i class="fa fa-dashboard"></i>
+                          <span class="menuname">DASHBOARD</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="addUsers.php">
+                          <i class="fa fa-user-plus"></i>
+                          <span class="menuname">ADD USER</span>
+                      </a>
+                  </li>
+                  <!-- <li>
                         <a href="#">
                             <i class="fa fa-money"></i>
                             <span class="menuname">REVENUE MANAGEMENT</span>
@@ -45,6 +59,10 @@
                             <span class="menuname">STATS</span>
                         </a>
                     </li> -->
-                </ul>
-            </div>
-        </div>
+              </ul>
+          </div>
+      </div>
+
+  </body>
+
+  </html>

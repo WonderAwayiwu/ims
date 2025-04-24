@@ -19,6 +19,7 @@ if ($_POST) {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc(); // Fetch the user details
+        $_SESSION['user'] = $user; // Store the user details in the session
         $_SESSION['first_name'] = $user['first_name']; // Store the first name in the session
         $_SESSION['username'] = $user['email']; // Store the username in the session
         header("location: dashboard.php");

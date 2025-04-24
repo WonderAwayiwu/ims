@@ -9,6 +9,7 @@ if (!isset($_SESSION['first_name'])) {
     header("Location: login.php"); // Redirect to login if the session is not set
     exit;
 }
+$user = $_SESSION['user']; // Retrieve the user details from the session
 
 $first_name = htmlspecialchars($_SESSION['first_name']); // Safely retrieve the first name
 ?>
