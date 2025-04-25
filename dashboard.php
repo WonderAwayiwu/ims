@@ -10,6 +10,7 @@ if (!isset($_SESSION['first_name'])) {
     exit;
 }
 $user = $_SESSION['user']; // Retrieve the user details from the session
+$users = include('database/show-users.php'); // Include the file to get users data
 
 $first_name = htmlspecialchars($_SESSION['first_name']); // Safely retrieve the first name
 ?>
@@ -24,7 +25,7 @@ $first_name = htmlspecialchars($_SESSION['first_name']); // Safely retrieve the 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Inventory Management System</title>
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard1.css">
 </head>
 
 <body>

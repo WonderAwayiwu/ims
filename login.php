@@ -16,13 +16,16 @@ if ($_POST) {
     include 'database/connection.php';
 
     $result = $conn->query("select * from users where email='$username' and password='$password'");
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc(); // Fetch the user details
+    $data = $conn->query("select * from users")->fetch_assoc(); 
+    if ($user = $result->fetch_assoc()) {
+        $data = $conn->query("select * from users")->fetch_assoc(); 
         $_SESSION['user'] = $user; // Store the user details in the session
         $_SESSION['first_name'] = $user['first_name']; // Store the first name in the session
         $_SESSION['username'] = $user['email']; // Store the username in the session
+         
         header("location: dashboard.php");
+       
+
         exit;
     } else {
         echo "<script>alert('Invalid username or password');</script>";
