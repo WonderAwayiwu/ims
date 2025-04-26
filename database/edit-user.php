@@ -1,17 +1,21 @@
 <?php
 session_start();
-include 'database/connection.php';
+include 'connection.php';
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
 
-    $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $select = $conn->query("SELECT * FROM users WHERE id = $id");
 
+    if ($select) {
+        // Fetch the user data
 
+    $result = $select->fetch_assoc();
 
+    }
 
+}
 
 ?>
 
@@ -79,26 +83,33 @@ if (isset($_GET['id'])) {
   
 </head>
 <body>
-<form action="database/add.php" class="appform" method="post">
+
+
+<form action="update.php" class="appform" method="post">
     <h1>Upadate User</h1>
     <div>
+
+    
+     <input type="hidden" id="id" class="appFormInput" name="id" placeholder="Enter First Name" value="<?= $result['id']?>"> 
+
+
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" class="appFormInput" name="firstname" placeholder="Enter First Name">
+        <input type="text" id="firstname" class="appFormInput" name="firstname" placeholder="Enter First Name" value="<?= $result['first_name']?>">
     </div>
     <div>
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" class="appFormInput" name="lastname" placeholder="Enter Last Name">
+        <input type="text" id="lastname" class="appFormInput" name="lastname" placeholder="Enter Last Name" value="<?= $result['last_name']?>">
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" id="email" class="appFormInput" name="email" placeholder="Enter Email">
+        <input type="email" id="email" class="appFormInput" name="email" placeholder="Enter Email" value="<?= $result['email']?>">
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" id="password" class="appFormInput" name="password" placeholder="Enter Password">
+        <input type="password" id="password" class="appFormInput" name="password" placeholder="Enter Password" value="<?= $result['password']?>">
     </div>
 
-    <button type="submit"><i class="fa fa-plus"></i>Update User</button>
+    <button type="submit" name="update"><i class="fa fa-plus"></i>Update User</button>
 
 </form>
 </body>

@@ -10,12 +10,13 @@ session_start();
     $password = $_POST['password'];
     $password = password_hash($password, PASSWORD_DEFAULT); // Hash the password for security
     
-
+  
+    
     try {
         include 'connection.php';
         $sql = $conn->query(
-            "INSERT INTO $table_name (first_name, last_name, email, password, created_at, updated_at) 
-            VALUES ('$first_name', '$last_name', '$email', '$password', NOW(), NOW())"
+            "INSERT INTO $table_name ( first_name, last_name, email, password, created_at, updated_at) 
+            VALUES ( '$first_name', '$last_name', '$email', '$password', NOW(), NOW())"
         );
 
         $response = [

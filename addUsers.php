@@ -116,7 +116,9 @@ $_SESSION['table'] = 'users'; // Set the table session variable to 'users'
                 <?= $response_message; ?>
             </p>
         </div>
-    <?php } ?>
+    <?php 
+        unset($_SESSION['response']);
+    } ?>
 </div>
 
 <div class="column column-7">
@@ -146,7 +148,7 @@ $_SESSION['table'] = 'users'; // Set the table session variable to 'users'
                                 <td><?= date('M d, Y @ h:i:s A', strtotime($user['created_at'])) ?></td>
                                 <td><?= date('M d, Y @ h:i:s A', strtotime($user['updated_at'])) ?></td>
                                 <td>
-                                    <a href="database/edit-user.php?id=<?= $user['id'] ?>" class="edit-button"><i class="fa fa-edit"></i>Edit</a>
+                                    <a href="database/edit-user.php?id=<?=$user['id'] ?>" class="edit-button"> <?=$user['id'] ?><i class="fa fa-edit"></i>Edit</a>
                                     <a href="database/delete.php?id=<?= $user['id'] ?>" class="delete-button"><i class="fa fa-trash"></i>Delete</a>
 
                                 </td>
@@ -165,7 +167,9 @@ $_SESSION['table'] = 'users'; // Set the table session variable to 'users'
                 <?= $response_message; ?>
             </p>
         </div>
- <?php } ?>
+ <?php 
+        unset($_SESSION['deleteresponse']);
+    } ?>
 
              
                 <p class="table-footer">Total Users: <?= count($users) ?></p>
@@ -183,48 +187,33 @@ $_SESSION['table'] = 'users'; // Set the table session variable to 'users'
 
     <script>
 
-
    // Add confirmation dialog before deleting a user
    const deleteButtons = document.querySelectorAll('.delete-button');
-                    deleteButtons.forEach(button => {
-                            button.addEventListener('click', (event) => {
-                                    const confirmDelete = confirm('Are you sure you ant to delet this user?');
-                                        if (!confirmDelete) {
-                                            event.preventDefault(); // Prevent the default action (navigation)
-                                        }
-                                    })
-                            })
-      document.addEventListener('DOMContentLoaded', function() {
-                    // Select the response message element
-                    const responseMessage = document.getElementById('deleteresponseMessage');
+   deleteButtons.forEach(button => {
+       button.addEventListener('click', (event) => {
+           const confirmDelete = confirm('Are you sure you want to delete this user?');
+           if (!confirmDelete) {
+               event.preventDefault(); // Prevent the default action (navigation)
+           }
+       });
+   });
 
-                    // Check if the element exists
-                    if (responseMessage) {
-                        // Set a timeout to hide the element after 4 seconds
-                        setTimeout(() => {
-                            responseMessage.style.display = 'none';
-                        }, 3000); 
-                    }
+   window.addEventListener('load', function() {
+       // Hide response messages after timeout
+       const responseMessage = document.getElementById('responseMessage');
+       if (responseMessage) {
+           setTimeout(() => {
+               responseMessage.style.display = 'none';
+           }, 11000);
+       }
+       const deleteresponseMessage = document.getElementById('deleteresponseMessage');
+       if (deleteresponseMessage) {
+           setTimeout(() => {
+               deleteresponseMessage.style.display = 'none';
+           }, 113000);
+       }
+   });
 
-                });   
-
-
-        // Wait for the DOM to load
-        document.addEventListener('DOMContentLoaded', function() {
-                    // Select the response message element
-                    const responseMessage = document.getElementById('responseMessage');
-
-                    // Check if the element exists
-                    if (responseMessage) {
-                        // Set a timeout to hide the element after 4 seconds
-                        setTimeout(() => {
-                            responseMessage.style.display = 'none';
-                        }, 4000); // 4000 milliseconds = 4 seconds
-                    }
-
-                });   
-
-                    
     </script>
 
     <!-- JavaScript -->
